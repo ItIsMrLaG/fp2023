@@ -1,18 +1,19 @@
 (library
- (name lambda_lib)
- (public_name Lambda.Lib)
- (modules Ast Lambda Interpret Parser Printast Pprintast utils)
- (modules_without_implementation ast)
- (libraries base angstrom)
+ (name OCamlWithWeakTypeVariables)
+ (public_name OCamlWithWeakTypeVariables.Lib)
+ (modules parser ast types inferencer interpreter)
+ (modules_without_implementation types)
  (preprocess
-  (pps ppx_deriving.show))
+  (pps ppx_expect ppx_deriving.show))
+ (libraries angstrom base)
  (instrumentation
-  (backend bisect_ppx)))
+  (backend bisect_ppx))
+ (inline_tests))
 
 (library
  (name tests)
  (modules tests)
- (libraries lambda_lib)
+ (libraries OCamlWithWeakTypeVariables)
  (preprocess
   (pps ppx_expect ppx_deriving.show))
  (instrumentation
