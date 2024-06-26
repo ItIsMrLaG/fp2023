@@ -1,9 +1,0 @@
-(library
- (name haskellLib)
- (public_name Haskell.lib)
- (modules Parser Ast Inferencer Typedtree Interpreter)
- (libraries base angstrom ppx_show.runtime)
- (instrumentation
-  (backend bisect_ppx))
- (preprocess
-  (pps ppx_deriving.show)))

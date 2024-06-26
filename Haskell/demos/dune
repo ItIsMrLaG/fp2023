@@ -1,9 +1,0 @@
-(executable
- (name ubiycaHaskella)
- (public_name ubiycaHaskella)
- (libraries haskellLib base)
- (instrumentation
-  (backend bisect_ppx)))
-
-(cram
- (deps ./ubiycaHaskella.exe))
